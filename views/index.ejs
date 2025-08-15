@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Minimal URL Shortener</title>
+</head>
+<body>
+  <h1>URL Shortener</h1>
+
+  <form action="/shorten" method="POST">
+    <label>Long URL:</label>
+    <input type="text" name="longUrl" required>
+    <br><br>
+    <label>Short Code:</label>
+    <input type="text" name="shortCode" required>
+    <br><br>
+    <button type="submit">Shorten</button>
+  </form>
+
+  <h2>Shortened URLs</h2>
+  <table border="1" cellpadding="5">
+    <tr>
+      <th>Short URL</th>
+      <th>Long URL</th>
+    </tr>
+    <% for (let code in urls) { %>
+      <tr>
+        <td>
+          <a href="/<%= code %>" target="_blank">
+            http://localhost:3000/<%= code %>
+          </a>
+        </td>
+        <td><%= urls[code] %></td>
+      </tr>
+    <% } %>
+  </table>
+</body>
+</html>
