@@ -25,9 +25,9 @@
     <% for (let code in urls) { %>
       <tr>
         <td>
-          <a href="/<%= code %>" target="_blank">
-            http://localhost:3000/<%= code %>
-          </a>
+            <a href="/<%= code %>" target="_blank">
+            <%= baseUrl %>/<%= code %>
+            </a>
         </td>
         <td><%= urls[code] %></td>
       </tr>

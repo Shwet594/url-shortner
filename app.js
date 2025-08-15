@@ -10,8 +10,10 @@ app.set("view engine", "ejs");
 const urls = {};
 
 app.get("/", (req, res) => {
-  res.render("index", { urls });
+  const baseUrl = `${req.protocol}://${req.get("host")}`;
+  res.render("index", { urls, baseUrl });
 });
+
 
 app.post("/shorten", (req, res) => {
   const { longUrl, shortCode } = req.body;
